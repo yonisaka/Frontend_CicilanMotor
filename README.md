@@ -9,12 +9,6 @@
 4. git remote add origin https://github.com/yonisaka/Frontend_CicilanMotor.git
 5. git push -u origin nama_branch
 
-### Daftar Branch
-- master
-- yoni
-- fikri
-- adida
-
 ### Perintah Dasar
 #### git init
 untuk membuat repositori lokal di dalam folder project.
