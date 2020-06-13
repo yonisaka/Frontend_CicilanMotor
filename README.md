@@ -17,6 +17,15 @@
 12. git merge nama_feature
 13. git push -u origin dev
 
+### Fitur Aplikasi
+1. Login & Register
+2. Pemesanan Motor
+3. Cicilan Motor 
+4. Akun Customer
+5. Data Customer (Admin)
+6. Data Motor (Admin)
+
+
 ### Perintah Dasar
 #### git init
 untuk membuat repositori lokal di dalam folder project.
