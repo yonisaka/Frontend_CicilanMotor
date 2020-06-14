@@ -24,6 +24,8 @@
 4. Akun Customer
 5. Data Customer (Admin)
 6. Data Motor (Admin)
+7. Home Page Customer
+9. Home Page Admin
 
 
 ### Perintah Dasar
