@@ -47,6 +47,9 @@
       width:200px;
     }
 
+    footer {
+      background-color: #5969ff;
+    }
     /* Change navbar styling on small viewports */
     @media (max-width: 991.98px) {
         .navbar {
@@ -96,7 +99,7 @@
   <h3 class="text-primary text-uppercase font-weight-bold text-center">Products</h3><hr class="title-hr">
   <div class="row mx-auto">
     <div class="col-3">
-      <div class="product-thumbnail">
+      <div class="product-thumbnail card-figure has-hoverable">
           <div class="product-img-head">
               <div class="product-img">
                   <img src="<?=base_url()?>/assets/images/beat.png" alt="" class="img-fluid"></div>
@@ -117,7 +120,7 @@
     </div>
 
     <div class="col-3">
-      <div class="product-thumbnail">
+      <div class="product-thumbnail card-figure has-hoverable">
           <div class="product-img-head">
               <div class="product-img">
                   <img src="<?=base_url()?>/assets/images/beat.png" alt="" class="img-fluid"></div>
@@ -138,7 +141,7 @@
     </div>
 
     <div class="col-3">
-      <div class="product-thumbnail">
+      <div class="product-thumbnail card-figure has-hoverable">
           <div class="product-img-head">
               <div class="product-img">
                   <img src="<?=base_url()?>/assets/images/beat.png" alt="" class="img-fluid"></div>
@@ -159,7 +162,7 @@
     </div>
 
     <div class="col-3">
-      <div class="product-thumbnail">
+      <div class="product-thumbnail card-figure has-hoverable">
           <div class="product-img-head">
               <div class="product-img">
                   <img src="<?=base_url()?>/assets/images/beat.png" alt="" class="img-fluid"></div>
@@ -229,7 +232,71 @@
   </div>
 </section>
 
+<section id="footer">
+  <footer class="container-fluid text-white p-0">
+      <div class="container">
+          <div class="row py-5">
+              <div class="col-md-4">
+                  <a href="#">
+                      <!-- <img src="{{ asset('img/logo_white.png') }}" class="logo" alt="Jatake Battery"> -->
+                    <h1 class="text-light">Bebek's Central Motor</h1>
+                  </a>
+              </div>
+              <div class="col-md-4">
+                  <div class="row">
+                      
+                      <div class="col-12">
+                          <h4 class="text-light">
+                              Kontak
+                          </h4>
+                          <ul class="list-unstyled">
+                              <li>
+                                  Email : bebekcentral@gmail.com
+                              </li>
+                              <li>
+                                  WA: <a
+                                      href="https://wa.me/0895371382959?text=Saya%20berkunjung%20ke%20website%20Anda%2c%20dan%20saya%20tertarik%20untuk%20bertanya."
+                                      target="_blank" class="text-white">0895371382959<i
+                                          class=" fab fa-whatsapp"></i></a>
+                              </li>
+                            </ul>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-12">
+                          <h4 class="text-light">
+                              Cari Kami!
+                          </h4>
 
+                          <ul class="list-unstyled">
+                              <li>
+                                  <a class="text-light" href="https://goo.gl/maps/vfpViuKTKqmjyRRY7" target="_blank">
+                                      Jl. Raya Gatot Subroto Km. 8 (sebelah indomaret)
+                                      Kec. Jatiuwung, Kota/Kab. Tangerang
+                                      Banten, 15134
+                                  </a>
+                              </li>
+                          </ul>
+
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <a class="map" href="https://goo.gl/maps/vfpViuKTKqmjyRRY7" target="_blank">
+                      <img class="rounded-img" src="<?=base_url('/assets/images/maps.png')?>" height="300px" alt="" srcset="">
+                  </a>
+              </div>
+          </div>
+      </div>
+      <div class="py-2 bg-dark">
+          <div class="container">
+              <div class="text-right">
+                  <b>Bebek.Central@2020</b>
+              </div>
+          </div>
+      </div>
+  </footer>
+</section>
 <script src="<?=base_url()?>/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
 <script src="<?=base_url()?>/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
 <script src="<?=base_url()?>/assets/js/scrolling-nav.js"></script>
