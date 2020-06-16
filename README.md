@@ -3,7 +3,7 @@
 ## Khusus Front End
 
 ### Langkah Membuat Fitur Projek
-1. membuat direktori sesuai nama fitur
+1. membuat direktori FE_CicilanMotor
 2. git init
 3. git remote add origin https://github.com/yonisaka/Frontend_CicilanMotor.git
 4. git pull origin dev
