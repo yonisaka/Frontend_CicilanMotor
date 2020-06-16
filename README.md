@@ -16,9 +16,9 @@
 11. git push -u nama_branch
 
 ### Langkah Merging
-git checkout dev
-git merge nama_feature
-git push -u origin dev
+1. git checkout dev
+2. git merge nama_feature
+3. git push -u origin dev
 
 ### Fitur Aplikasi
 1. Login & Register
