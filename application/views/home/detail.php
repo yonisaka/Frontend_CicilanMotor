@@ -90,15 +90,10 @@
 	    </div>
 		<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 col-lg-6 col-md-6 col-sm-12 col-12">
 	        <div class="card">
-	        	<div class="product-img-head">
-	              <div class="product-img">
-	                  <img src="<?=base_url()?>/assets/images/beat.png" alt="" class="img-fluid"></div>
-	              <div class="ribbons"></div>
-	              <div class="ribbons-text">Offer</div>
-	            </div>
+	            <img src="<?=base_url()?>/assets/images/beat.png" alt="" class="img-fluid">
 	            <div class="card-body">
-	                <h2 class="card-title">HONDA BEAT 2020</h2>
-	                <p class="text-muted">Last updated 3 mins ago</p>
+	                <h3 class="card-title">Honda Beat 2020</h3>
+	                <h2 class="text-muted">Rp. 20.000.000</h2>
 	            </div>
 	        </div>
 	    </div>
