@@ -13,9 +13,12 @@
 8. git status
 9. git add file_feature_yang_dibuat
 10. git commit -m "keterangan feature"
-11. git checkout dev
-12. git merge nama_feature
-13. git push -u origin dev
+11. git push -u nama_branch
+
+### Langkah Merging
+git checkout dev
+git merge nama_feature
+git push -u origin dev
 
 ### Fitur Aplikasi
 1. Login & Register
@@ -50,3 +53,5 @@ menggabungkan semua branch yang ada pada repositori.
 
 #### Concept Admin Template
 https://github.com/puikinsh/concept
+
+
