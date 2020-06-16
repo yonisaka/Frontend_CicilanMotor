@@ -7,12 +7,25 @@
   <link rel="stylesheet" href="<?=base_url()?>/assets/libs/css/style.css">
 	<style type="text/css">
     .jumb1 {
-        height: 400px;
+        height: 550px;
     }
 
     .jumb1 img {
-        height: 350px;
+        height: 450px;
     }
+
+    .header-title {
+        padding-top: 80px;
+    }
+
+    .header-title h2 {
+        font-size: 40px;
+    }
+
+    .header-title h1 {
+        font-size: 50px;
+    }
+
     .navbar {
         transition: all 0.4s;
     }
@@ -84,7 +97,7 @@
 <section id="home">
   <div class="jumbotron jumb1">
     <div class="container row mx-auto">
-      <div class="col-6 mt-4">
+      <div class="col-6 mt-4 header-title">
         <h2 class="mt-5">Cara mudah cepat cicil motor </h2>
         <h1 class="text-primary">dengan <b >DP 0%</b></h1>
       </div>
@@ -96,7 +109,7 @@
 </section>
 
 <section id="produk" class="mt-5">
-  <h3 class="text-primary text-uppercase font-weight-bold text-center">Products</h3><hr class="title-hr">
+  <h3 class="text-primary text-uppercase font-weight-bold text-center">Products</h3><hr class="title-hr mb-5">
   <div class="row mx-auto">
     <div class="col-3">
       <div class="product-thumbnail card-figure has-hoverable">
@@ -113,7 +126,7 @@
               </div>
               <div class="product-btn">
                   <a href="#" class="btn btn-primary">Buy Now</a>
-                  <a href="#" class="btn btn-outline-light">Details</a>
+                  <a href="<?=base_url('home/detail')?>" class="btn btn-outline-light">Details</a>
               </div>
           </div>
       </div>
@@ -239,7 +252,7 @@
               <div class="col-md-4">
                   <a href="#">
                       <!-- <img src="{{ asset('img/logo_white.png') }}" class="logo" alt="Jatake Battery"> -->
-                    <h1 class="text-light">Bebek's Central Motor</h1>
+                    <h1 class="text-light">Bebek's Motor</h1>
                   </a>
               </div>
               <div class="col-md-4">
@@ -251,7 +264,7 @@
                           </h4>
                           <ul class="list-unstyled">
                               <li>
-                                  Email : bebekcentral@gmail.com
+                                  Email : bebekmotor@gmail.com
                               </li>
                               <li>
                                   WA: <a
@@ -290,8 +303,8 @@
       </div>
       <div class="py-2 bg-dark">
           <div class="container">
-              <div class="text-right">
-                  <b>Bebek.Central@2020</b>
+              <div class="text-center">
+                  Bebek.Motor@Copyright 2020
               </div>
           </div>
       </div>
