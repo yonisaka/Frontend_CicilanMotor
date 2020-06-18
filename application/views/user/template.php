@@ -19,7 +19,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a href="<?=base_url('home')?>" class="js-scroll-trigger nav-link text-uppercase font-weight-bold">Home </a></li>
                     <li class="nav-item">
-                      <a href="#checkout" class="btn btn-sm btn-rounded btn-brand nav-link text-uppercase font-weight-bold ml-2">Logout</a>
+                      <a id="btn-logout" class="btn btn-sm btn-rounded btn-brand nav-link text-uppercase font-weight-bold ml-2">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -31,7 +31,36 @@
 </div>
 <script src="<?=base_url()?>/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
 <script src="<?=base_url()?>/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
 <script type="text/javascript">
+    $("#btn-logout").on("click", function(e){
+        e.preventDefault();
+        user_logout();
+    });
+
+    function user_logout(){
+        var url = "http://localhost/BE_CicilanMotor/auth/logout";
+
+        $.ajax(url,{
+            type: 'GET',
+            success: function (data, status, xhr) {
+                Swal.fire({
+                    type: 'success',
+                    title: 'Logout Berhasil!',
+                    timer: 3000,
+                    showCancelButton: false,
+                    showConfirmButton: false
+                })
+                .then(function(){
+                    window.location.href = "<?=base_url('')?>";
+                });
+            },
+            error: function (jqXHR, textStatus, errorMsg) {
+                alert('Error : ' + errorMsg);
+            }
+        })
+    }
+
     function loadMenu(url){
         $.ajax(url,{
             type: 'GET',
