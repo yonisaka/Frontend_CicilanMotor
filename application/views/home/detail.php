@@ -3,33 +3,10 @@
 <head>
 	<title>Bebek's Motor</title>
 	<link rel="stylesheet" href="<?=base_url()?>/assets/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?=base_url()?>/assets/vendor/fonts/circular-std/style.css">
     <link rel="stylesheet" href="<?=base_url()?>/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="<?=base_url()?>/assets/libs/css/style.css">
-    <style type="text/css">
-    	.navbar {
-    		background: #fff;
-    	}
-
-    	.navbar.active .nav-link {
-        color: #555;
-	    }
-
-	    .navbar.active .nav-link:hover,
-	    .navbar.active .nav-link:focus {
-	        color: #555;
-	        text-decoration: none;
-	    }
-
-    	@media (max-width: 991.98px) {
-        .navbar {
-            background: #fff;
-        }
-
-        .navbar .navbar-brand, .navbar .nav-link {
-            color: #555;
-        }
-
-    </style>
+    <link rel="stylesheet" href="<?=base_url()?>/assets/css/nav.css">
 </head>
 <body>
 <header class="header">
