@@ -344,39 +344,88 @@
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel"><b>LOGIN</b></h5>
+                <div class="modal-body">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <input class="form-control form-control-lg" id="username" type="text" placeholder="Username" autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control form-control-lg" id="password" type="password" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                        <label class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox">
-                        </label>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
-                    <a href="customer/registration" class="btn btn-secondary btn-lg btn-block">Register</a>
+                    <form id="formLogin">
+                        <h3 class="modal-title text-center mt-5 mb-5" id="loginModalLabel"><b>Login</b></h3>
+                        <div class="form-group">
+                            <input class="form-control form-control-lg form-user-input" id="email" name="email" type="text" placeholder="Email" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control form-control-lg form-user-input" id="password" name="password" type="password" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox">
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+                        <a href="customer/registration" class="btn btn-secondary btn-lg btn-block">Register</a>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
+    <script src="<?=base_url()?>/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="<?=base_url()?>/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
     <script type="text/javascript">
         $('#loginModal').on('shown.bs.modal', function() {
             $('#myInput').trigger('focus')
         })
     </script>
-</body>
+    <script type="text/javascript">
+        $('#formLogin').on('submit', function(e){
+            e.preventDefault();
+            loginAction();
+        });
 
+        function loginAction(){
+            var link = "http://localhost/BE_CicilanMotor/auth/login_action";
+
+            var email = $("#email").val();
+            var password = $("#password").val();
+
+            $.ajax(link, {
+                type: 'POST',
+                data: {
+                    "email" : email,
+                    "password" : password
+                },
+                success: function (response) {
+                    if(response == "success"){
+                        Swal.fire({
+                            type: 'success',
+                            title: 'Login Berhasil!',
+                            timer: 3000,
+                            showCancelButton: false,
+                            showConfirmButton: false
+                        })
+                        .then(function(){
+                            window.location.href = "<?=base_url('')?>user";
+                        });
+                    }else {
+                        Swal.fire({
+                            type: 'error',
+                            title: 'Gagal Login',
+                            text: 'Cek email atau password',
+                            timer: 3000,
+                            showCancelButton: false,
+                            showConfirmButton: false
+                        });
+                    }
+                },
+                error: function (response) {
+                    console.log(response);
+                }
+            });
+        }
+
+    </script>
+</body>
 </html>

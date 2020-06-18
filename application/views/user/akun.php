@@ -30,10 +30,12 @@
                     <div class="card-body border-top">
                         <h3 class="font-16">Contact Information</h3>
                         <div class="">
-                            <ul class="list-unstyled mb-0">
-                                <li class="mb-2" id="email_customer"><i class="fas fa-fw fa-envelope mr-2" ></i></li>
-                                <li class="mb-0" id="telp_customer"><i class="fas fa-fw fa-phone mr-2"></i></li>
-                            </ul>
+                            <div class="row">
+                                <i class="fas fa-fw fa-envelope mr-2 ml-3" ></i><p class="mb-2" id="email_customer"></p>
+                            </div>
+                            <div class="row">
+                                <i class="fas fa-fw fa-phone mr-2 ml-3"></i><p class="mb-0" id="telp_customer"></p>
+                            </div>
                         </div>
                     </div>
                     <div class="card-body">
@@ -65,7 +67,6 @@
 
     <script type="text/javascript" src="<?=base_url('assets/datatable/datatables.min.js')?>"></script>
     <script type="text/javascript">
-
         function loadKonten(url){
             $.ajax(url,{
                 type: 'GET',
@@ -87,6 +88,7 @@
             })
         }
         loadKonten("http://localhost/BE_CicilanMotor/customer/get_customer_by_id");
+
     </script>
     <script type="text/javascript">
         $(document).ready(function(){

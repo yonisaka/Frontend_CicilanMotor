@@ -3,9 +3,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends CI_Controller {
 
+	public function __construct(){
+		parent::__construct();
+		$this->load->library('session');
+	}
+	
 	public function index()
 	{
-		$this->load->view('user/template');
+		$login = $this->session->status;
+
+		if($login == "login"){
+			$this->load->view('user/template');
+		}else {
+			echo "login dlu";
+		}
+		
 	}
 
 	public function akun()

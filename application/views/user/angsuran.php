@@ -31,10 +31,12 @@
                 <div class="card-body border-top">
                     <h3 class="font-16">Contact Information</h3>
                     <div class="">
-                        <ul class="list-unstyled mb-0">
-                            <li class="mb-2" id="email_customer"><i class="fas fa-fw fa-envelope mr-2" ></i></li>
-                            <li class="mb-0" id="telp_customer"><i class="fas fa-fw fa-phone mr-2"></i></li>
-                        </ul>
+                        <div class="row">
+                            <i class="fas fa-fw fa-envelope mr-2 ml-3" ></i><p class="mb-2" id="email_customer"></p>
+                        </div>
+                        <div class="row">
+                            <i class="fas fa-fw fa-phone mr-2 ml-3"></i><p class="mb-0" id="telp_customer"></p>
+                        </div>
                     </div>
                 </div>
 	            <div class="card-body">
@@ -123,9 +125,17 @@
             processData: false,
             dataType: 'json',
             success: function (data, status, xhr) {
-                console.log("submit sukses");
-                alert(data['pesan']);
-                // loadMenu('<?= base_url('user')?>');
+                Swal.fire({
+                    type: 'success',
+                    title: 'Konfirmasi Berhasil!',
+                    text: 'Bukti Angsuran akan di proses Admin',
+                    timer: 3000,
+                    showCancelButton: false,
+                    showConfirmButton: false
+                })
+                .then(function(){
+                    window.location.href = "<?=base_url('')?>user";
+                });
             },
             error: function (jqXHR, textStatus, errorMsg) {
                 alert('Error : ' + errorMsg);
