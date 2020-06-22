@@ -12,18 +12,13 @@
     <link rel="stylesheet" href="<?= base_url() ?>/assets/libs/css/style.css">
     <link rel="stylesheet" href="<?= base_url() ?>/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <style>
-        html,
         body {
-           
-        }
-
-        body {
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-align: center;
-            align-items: center;
-            padding-top: 40px;
-            padding-bottom: 40px;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-align: center;
+          align-items: center;
+          padding-top: 40px;
+          padding-bottom: 40px;
         }
         .upload-area{
           width: 100%;
@@ -37,7 +32,7 @@
         .upload-area:hover{
           cursor: pointer;
         }
-        .upload-area h2{
+        .upload-area h4{
           text-align: center;
           font-weight: normal;
           font-family: sans-serif;
@@ -90,7 +85,7 @@
                           <input type="file" name="file" id="file">
                           <!-- Drag and Drop Container -->
                           <div class="upload-area" id="uploadfile">
-                          <h2>Drag and Drop file here <br/> or <br/> Click to select file</h2>
+                          <h4>Drag and Drop file here</h4>
                           </div>
                       </div>
                   </div>
@@ -142,6 +137,7 @@
     </div>
 
 <script src="<?=base_url()?>/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
 <script type="text/javascript">
     $('#formRegister').on('submit', function(e){
       e.preventDefault();
@@ -168,13 +164,20 @@
         processData: false,
         dataType: 'json',
         success: function (data, status, xhr) {
-          console.log("submit sukses");
-          alert(data['pesan']);
-          // window.location.href('<?= base_url('')?>');
+          Swal.fire({
+              type: 'success',
+              title: 'Anda sudah berhasil mendaftar',
+              timer: 3000,
+              showCancelButton: false,
+              showConfirmButton: false
+          })
+          .then(function(){
+              location.replace("<?=base_url('')?>");
+          });
         },
         error: function (jqXHR, textStatus, errorMsg) {
           alert('Error : ' + errorMsg);
-          // console.log(errorMsg);
+          console.log(errorMsg);
         }
       });
     }
@@ -188,19 +191,19 @@
   $("html").on("dragover", function(e) {
     e.preventDefault();
     e.stopPropagation();
-    $(".upload-area > h2").text("Drag here");
+    $(".upload-area > h4").text("Drag here");
   });
 
   $('.upload-area').on('dragenter', function (e) {
     e.stopPropagation();
     e.preventDefault();
-    $(".upload-area > h2").text("Drop");
+    $(".upload-area > h4").text("Drop");
   });
 
   $('.upload-area').on('dragover', function (e) {
     e.stopPropagation();
     e.preventDefault();
-    $(".upload-area > h2").text("Drop !!");
+    $(".upload-area > h4").text("Drop !!");
   });
 
   $(".upload-area").on("drop", function (e) {
@@ -209,7 +212,7 @@
     var file = e.originalEvent.dataTransfer.files;
     $("#file")[0].files = file;
     // console.log(file);
-    $(".upload-area > h2").text("File yang dipilih : " + file[0].name);
+    $(".upload-area > h4").text("File yang dipilih : " + file[0].name);
   });
 
   $(".upload-area").click(function(){
@@ -219,7 +222,7 @@
   $("#file").change(function () {
     var file = $("#file")[0].files[0];
     // console.log(file);
-    $(".upload-area > h2").text("File yang dipilih : " + file.name);
+    $(".upload-area > h4").text("File yang dipilih : " + file.name);
   });
 
 </script>
