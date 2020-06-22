@@ -362,7 +362,7 @@
                             </label>
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
-                        <a href="customer/registration" class="btn btn-secondary btn-lg btn-block">Register</a>
+                        <a href="register/registration" class="btn btn-secondary btn-lg btn-block">Register</a>
                     </form>
                 </div>
             </div>
@@ -407,7 +407,7 @@
                             showConfirmButton: false
                         })
                         .then(function(){
-                            window.location.href = "<?=base_url('')?>user";
+                            location.replace("<?=base_url('')?>user");
                         });
                     }else {
                         Swal.fire({

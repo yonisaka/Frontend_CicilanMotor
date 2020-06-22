@@ -21,7 +21,9 @@
 	        <div class="card">
 	            <div class="card-body">
                     <div class="user-avatar text-center d-block">
-                        <img src="<?=base_url('')?>assets/images/avatar-1.jpg" alt="User Avatar" class="rounded-circle user-avatar-xxl">
+                        <div id="foto-user">
+                                
+                        </div>
                     </div>
                     <div class="text-center">
                         <h2 class="font-24 mb-0" id="nama_customer"></h2>
@@ -77,6 +79,7 @@
                             <div class="col-sm-6 col-lg-12 pl-0">
                                 <p class="text-right">
                                     <input type="hidden" name="id_transaksi" class="form-user-input" id="id_transaksi">
+                                    <input type="hidden" name="sisa_angsuran" class="form-user-input" id="sisa_angsuran">
                                     <button type="submit" class="btn btn-space btn-primary">Konfirmasi Angsuran</button>
                                 </p>
                             </div>
@@ -151,10 +154,12 @@
                 var data_obj = JSON.parse(data);
                 if(data_obj['sukses'] == 'ya'){
                     var detail = data_obj['detail'];
+                    var foto = data_obj['foto'];
                     $('#nama_customer').html(detail['nama']);
                     $('#status_customer').html(detail['status']);
                     $('#email_customer').html(detail['email']);
                     $('#telp_customer').html(detail['no_telepon']);
+                    $('#foto-user').html(foto);
                 } else{
                     alert('Data Tidak Ditemukan');
                 }
@@ -175,10 +180,13 @@
                     var detail = data_obj['detail'];
                     var d = new Date();
                     var date_now = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+                    var sisa_angsuran = (parseInt(detail['sisa_angsuran']) - parseInt(detail['nominal_angsuran'])) ;
+                    
                     $('#nominal').val(detail['nominal_angsuran']);
                     $('#kali_angsuran').val(parseInt(detail['kali_angsuran']) + 1);
                     $('#tanggal').val(date_now);
                     $('#id_transaksi').val(detail['id_transaksi']);
+                    $('#sisa_angsuran').val(sisa_angsuran);
                 } else{
                     alert('Data Tidak Ditemukan');
                 }
