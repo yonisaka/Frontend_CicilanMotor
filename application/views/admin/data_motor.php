@@ -2,9 +2,13 @@
 <div class="card"> 
     <div class="card-body">
         <h4>Dibawah Ini Adalah Data Motor</h4>
-        <table id="tabel_data_motor"> </table>
-        </div>
+  
+        <table id="tabel_data_motor" class="table">
+            
+        </table>
+
     </div>
+</div>
 
 
 <script type="text/javascript" src="<?= base_url('assets/datatable/datatables.min.js')?>"></script>
