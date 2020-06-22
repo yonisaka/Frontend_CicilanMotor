@@ -20,7 +20,9 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="user-avatar text-center d-block">
-                            <img src="<?=base_url('')?>assets/images/avatar-1.jpg" alt="User Avatar" class="rounded-circle user-avatar-xxl">
+                            <div id="foto-user">
+                                
+                            </div>
                         </div>
                         <div class="text-center">
                             <h2 class="font-24 mb-0" id="nama_customer"></h2>
@@ -75,10 +77,12 @@
                     var data_obj = JSON.parse(data);
                     if(data_obj['sukses'] == 'ya'){
                         var detail = data_obj['detail'];
+                        var foto = data_obj['foto'];
                         $('#nama_customer').html(detail['nama']);
                         $('#status_customer').html(detail['status']);
                         $('#email_customer').html(detail['email']);
                         $('#telp_customer').html(detail['no_telepon']);
+                        $('#foto-user').html(foto);
                     } else{
                         alert('Data Tidak Ditemukan');
                     }
