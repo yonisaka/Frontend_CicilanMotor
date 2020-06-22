@@ -15,7 +15,7 @@ class User extends CI_Controller {
 		if($login == "login"){
 			$this->load->view('user/template');
 		}else {
-			echo "login dulu";
+			$this->load->view('home/index');
 		}
 		
 	}
