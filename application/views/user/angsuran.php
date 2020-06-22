@@ -77,6 +77,7 @@
                             <div class="col-sm-6 col-lg-12 pl-0">
                                 <p class="text-right">
                                     <input type="hidden" name="id_transaksi" class="form-user-input" id="id_transaksi">
+                                    <input type="hidden" name="sisa_angsuran" class="form-user-input" id="sisa_angsuran">
                                     <button type="submit" class="btn btn-space btn-primary">Konfirmasi Angsuran</button>
                                 </p>
                             </div>
@@ -175,10 +176,13 @@
                     var detail = data_obj['detail'];
                     var d = new Date();
                     var date_now = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+                    var sisa_angsuran = (parseInt(detail['sisa_angsuran']) - parseInt(detail['nominal_angsuran'])) ;
+                    
                     $('#nominal').val(detail['nominal_angsuran']);
                     $('#kali_angsuran').val(parseInt(detail['kali_angsuran']) + 1);
                     $('#tanggal').val(date_now);
                     $('#id_transaksi').val(detail['id_transaksi']);
+                    $('#sisa_angsuran').val(sisa_angsuran);
                 } else{
                     alert('Data Tidak Ditemukan');
                 }

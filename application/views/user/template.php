@@ -45,15 +45,31 @@
             type: 'GET',
             success: function (data, status, xhr) {
                 Swal.fire({
-                    type: 'success',
-                    title: 'Logout Berhasil!',
-                    timer: 3000,
-                    showCancelButton: false,
-                    showConfirmButton: false
+                  title: 'Yakin ingin keluar?',
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Iya'
+                }).then((result) => {
+                  if (result.value) {
+                    Swal.fire( 
+                      'Berhasil Logout!',
+                    ).then(function(){
+                            window.location.href = "<?=base_url('')?>";
+                        });
+                  }
                 })
-                .then(function(){
-                    window.location.href = "<?=base_url('')?>";
-                });
+                // Swal.fire({
+                //     type: 'success',
+                //     title: 'Logout Berhasil!',
+                //     timer: 3000,
+                //     showCancelButton: false,
+                //     showConfirmButton: false
+                // })
+                // .then(function(){
+                //     window.location.href = "<?=base_url('')?>";
+                // });
             },
             error: function (jqXHR, textStatus, errorMsg) {
                 alert('Error : ' + errorMsg);

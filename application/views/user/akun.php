@@ -54,7 +54,8 @@
                                     <th scope="col">Tanggal</th>
                                     <th scope="col">Nominal</th>
                                     <th scope="col">Angsuran ke</th>
-                                    <th scope="col">Total Pembelian</th>
+                                    <th scope="col">Sisa Angsuran</th>
+                                    <th scope="col">Status</th>
                                 </tr>
                             </thead>
                         
