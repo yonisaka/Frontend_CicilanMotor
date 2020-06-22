@@ -407,7 +407,7 @@
                             showConfirmButton: false
                         })
                         .then(function(){
-                            window.location.href = "<?=base_url('')?>user";
+                            location.replace("<?=base_url('')?>user");
                         });
                     }else {
                         Swal.fire({
