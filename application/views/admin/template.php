@@ -8,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Admin Page</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<?=base_url()?>/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/datatable/')?>datatables.min.css">
+    <link rel="stylesheet" href="<?=base_url()?>/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?=base_url()?>/assets/vendor/fonts/circular-std/style.css">
     <link rel="stylesheet" href="<?=base_url()?>/assets/libs/css/style.css">
     <link rel="stylesheet" href="<?=base_url()?>/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
@@ -174,19 +174,22 @@ John Abraham</h5>
                                 <div id="submenu-6" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="invoice.html">Semua Customers</a>
+                                            <a class="nav-link" href="#" onclick="loadMenu('<?=base_url('customer')?>')">Semua Customers</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="blank-page.html">Dalam Angsuran</a>
+                                            <a class="nav-link" href="#" onclick="loadMenu('<?=base_url('customer/form_create')?>')">Tambah Customers</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="blank-page-header.html">Tidak Ada Angsuran</a>
+                                            <a class="nav-link" href="#">Dalam Angsuran</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="login.html">Angsuran Lunas</a>
+                                            <a class="nav-link" href="#">Tidak Ada Angsuran</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="404-page.html">Lewat Jatuh Tempo</a>
+                                            <a class="nav-link" href="#">Angsuran Lunas</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Lewat Jatuh Tempo</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -255,6 +258,7 @@ John Abraham</h5>
                     </div>
                 </div>
             </div>
+        </div>
             <!-- ============================================================== -->
             <!-- end footer -->
             <!-- ============================================================== -->
