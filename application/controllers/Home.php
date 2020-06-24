@@ -8,21 +8,63 @@ class Home extends CI_Controller {
 		$this->load->view('home/index');
 	}
 
-	public function setSession()
+	// public function setSession()
+	// {
+	// 	$this->load->library('session');
+
+	// 	$id_customer = $this->input->post('id_customer');
+	// 	$email = $this->input->post('email');
+	// 	$nama = $this->input->post('nama');
+
+	// 	$this->session->set_userdata('id_customer', $id_customer);
+	// 	$this->session->set_userdata('email', $email);
+	// 	$this->session->set_userdata('nama', $nama);
+	// }
+
+	public function detail($id_motor)
 	{
-		$this->load->library('session');
+		$data_view = array('id_motor' => $id_motor);
 
-		$id_customer = $this->input->post('id_customer');
-		$email = $this->input->post('email');
-		$nama = $this->input->post('nama');
+		$konten = $this->load->view('home/detail', $data_view, true);
 
-		$this->session->set_userdata('id_customer', $id_customer);
-		$this->session->set_userdata('email', $email);
-		$this->session->set_userdata('nama', $nama);
+		$data_json = array(
+			'konten' => $konten,
+			'id_motor' => $id_motor
+		);
+
+		echo json_encode($data_json);
 	}
 
-	public function detail()
+	public function pembelian($id_motor)
 	{
-		$this->load->view('home/detail');
+		$this->load->library('session');
+		$login = $this->session->status;
+		$data_view = array('id_motor' => $id_motor);
+
+		if($login == 'login'){
+			$konten = $this->load->view('home/pembelian', $data_view, true);
+
+			$data_json = array(
+				'konten' => $konten,
+				'id_motor' => $id_motor
+			);
+
+			echo json_encode($data_json);
+		}else {
+			echo json_encode("belum login");
+		}
+	}
+
+	public function pembayaran($id_customer)
+	{
+		$data_view = array('id_customer' => $id_customer);
+		$konten = $this->load->view('home/pembayaran', $data_view, true);
+
+		$data_json = array(
+			'konten' => $konten,
+			'id_customer' => $id_customer
+		);
+
+		echo json_encode($data_json);
 	}
 }

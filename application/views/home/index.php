@@ -89,7 +89,7 @@
 </head>
 <!-- <body onload="dataReload();"> -->
 
-<body>
+<body id="bodyKonten">
     <header class="header">
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container"><a href="#" class="navbar-brand text-uppercase font-weight-bold js-scroll-trigger">Bebek's Motor</a>
@@ -125,90 +125,8 @@
     <section id="produk" class="mt-5">
         <h3 class="text-primary text-uppercase font-weight-bold text-center">Products</h3>
         <hr class="title-hr">
-        <div class="row mx-auto">
-            <div class="col-3">
-                <div class="product-thumbnail card-figure has-hoverable">
-                    <div class="product-img-head">
-                        <div class="product-img">
-                            <img src="<?= base_url() ?>/assets/images/beat.png" alt="" class="img-fluid"></div>
-                        <div class="ribbons"></div>
-                        <div class="ribbons-text">Offer</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-content-head">
-                            <h3 class="product-title font-weight-bold">Honda Beat</h3>
-                            <div class="product-price">Rp. 20.000.000</div>
-                        </div>
-                        <div class="product-btn">
-                            <a href="#" class="btn btn-primary">Buy Now</a>
-                            <a href="#" class="btn btn-outline-light">Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="product-thumbnail card-figure has-hoverable">
-                    <div class="product-img-head">
-                        <div class="product-img">
-                            <img src="<?= base_url() ?>/assets/images/beat.png" alt="" class="img-fluid"></div>
-                        <div class="ribbons"></div>
-                        <div class="ribbons-text">Offer</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-content-head">
-                            <h3 class="product-title font-weight-bold">Honda Beat</h3>
-                            <div class="product-price">Rp. 20.000.000</div>
-                        </div>
-                        <div class="product-btn">
-                            <a href="#" class="btn btn-primary">Buy Now</a>
-                            <a href="#" class="btn btn-outline-light">Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="product-thumbnail card-figure has-hoverable">
-                    <div class="product-img-head">
-                        <div class="product-img">
-                            <img src="<?= base_url() ?>/assets/images/beat.png" alt="" class="img-fluid"></div>
-                        <div class="ribbons"></div>
-                        <div class="ribbons-text">Offer</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-content-head">
-                            <h3 class="product-title font-weight-bold">Honda Beat</h3>
-                            <div class="product-price">Rp. 20.000.000</div>
-                        </div>
-                        <div class="product-btn">
-                            <a href="#" class="btn btn-primary">Buy Now</a>
-                            <a href="#" class="btn btn-outline-light">Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-3">
-                <div class="product-thumbnail card-figure has-hoverable">
-                    <div class="product-img-head">
-                        <div class="product-img">
-                            <img src="<?= base_url() ?>/assets/images/beat.png" alt="" class="img-fluid"></div>
-                        <div class="ribbons"></div>
-                        <div class="ribbons-text">Offer</div>
-                    </div>
-                    <div class="product-content">
-                        <div class="product-content-head">
-                            <h3 class="product-title font-weight-bold">Honda Beat</h3>
-                            <div class="product-price">Rp. 20.000.000</div>
-                        </div>
-                        <div class="product-btn">
-                            <a href="#" class="btn btn-primary">Buy Now</a>
-                            <a href="#" class="btn btn-outline-light">Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="row mx-auto" id="daftarMotor">
+         
         </div>
 
     </section>
@@ -380,6 +298,22 @@
         })
     </script>
     <script type="text/javascript">
+        function loadMenu(url){
+            $.ajax(url,{
+                type: 'GET',
+                success: function (data, status, xhr) {
+                    var objData = JSON.parse(data);
+                    console.log(objData);
+                    $("#daftarMotor").html(objData.motor);
+                    reload_event();
+                },
+                error: function (jqXHR, textStatus, errorMsg) {
+                    alert('Error : ' + errorMsg);
+                }
+            })
+        }
+        loadMenu("http://localhost/BE_CicilanMotor/motor/index_motor");
+
         $('#formLogin').on('submit', function(e){
             e.preventDefault();
             loginAction();
@@ -426,6 +360,28 @@
             });
         }
 
+    </script>
+    <script type="text/javascript">
+        function reload_event(){
+            $('.linkDetailMotor').on('click', function(){
+                var hashClean =  this.hash.replace('#','');
+                loadDetail('<?= base_url('home/detail/')?>' + hashClean);
+            });
+        }
+
+        function loadDetail(url){
+            $.ajax(url,{
+                type: 'GET',
+                success: function (data, status, xhr) {
+                    var objData = JSON.parse(data);
+                    // console.log(objData.id_motor);
+                    $('#bodyKonten').html(objData.konten);
+                },
+                error: function (jqXHR, textStatus, errorMsg) {
+                    alert('Error : ' + errorMsg);
+                }
+            })
+        }
     </script>
 </body>
 </html>
