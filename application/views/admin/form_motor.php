@@ -51,6 +51,11 @@
                     <input id="jenis" type="text" class="form-control form-control-line form-user-input" name="jenis">
                 </div>
                 <div class="form-group">
+                    <label for="deskripsi" class="col-form-label">Deskripsi</label>
+                   <!--  <input id="deskripsi" type="text" class="form-control form-control-line form-user-input" name="deskripsi" > -->
+                   <textarea class="form-control form-control-line form-user-input" id="deskripsi" name="deskripsi" rows="3"></textarea>
+                </div>
+                <div class="form-group">
                     <label for="stok" class="col-form-label">Stok</label>
                     <input id="stok" type="text" class="form-control form-control-line form-user-input" name="stok">
                 </div>
@@ -140,6 +145,7 @@
                     $('#merek').val(detail['merek']);
                     $('#seri').val(detail['seri']);
                     $('#jenis').val(detail['jenis']);
+                    $('#deskripsi').val(detail['deskripsi']);
                     $('#stok').val(detail['stok']);
                     $('#harga').val(detail['harga']);
                     $('#id_motor').val(detail['id_motor']);
