@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login</title>
+    <title>Login Admin</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="<?= base_url() ?>/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
@@ -34,29 +34,20 @@
     <!-- ============================================================== -->
     <div class="splash-container">
         <div class="card ">
-            <div class="card-header text-center"><a href="../index.html"><img class="logo-img" src="<?= base_url() ?>/assets/images/logo.png" alt="logo"></a><span class="splash-description">Please enter your user information.</span></div>
+            <h3 class="text-center mt-4 mb-1"><b>Login Admin</b></h3>
             <div class="card-body">
-                <form>
+                <form id="formLogin">
                     <div class="form-group">
-                        <input class="form-control form-control-lg" id="username" type="text" placeholder="Username" autocomplete="off">
+                        <input class="form-control form-control-lg form-user-input" id="email" type="email" name="email" required="" placeholder="Masukkan email" autocomplete="off">
                     </div>
                     <div class="form-group">
-                        <input class="form-control form-control-lg" id="password" type="password" placeholder="Password">
+                        <input class="form-control form-control-lg form-user-input" id="password" type="password" name="password" required="" placeholder="Masukkan password">
                     </div>
                     <div class="form-group">
-                        <label class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Remember Me</span>
-                        </label>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+                        <a href="registration" class="btn btn-secondary btn-lg btn-block">Register</a>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
                 </form>
-            </div>
-            <div class="card-footer bg-white p-0  ">
-                <div class="card-footer-item card-footer-item-bordered">
-                    <a href="registration" class="footer-link">Create An Account</a></div>
-                <div class="card-footer-item card-footer-item-bordered">
-                    <a href="#" class="footer-link">Forgot Password</a>
-                </div>
             </div>
         </div>
     </div>
@@ -67,6 +58,67 @@
     <!-- Optional JavaScript -->
     <script src="<?= base_url() ?>/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
     <script src="<?= base_url() ?>/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+
+    <script type="text/javascript">
+        $("#formLogin").on('submit', function (e) {
+            e.preventDefault();
+            checkLogin();
+        });
+
+        function checkLogin() 
+        {
+            var link = "http://localhost/BE_CicilanMotor/auth_admin/check_login/";
+
+            var dataForm = {};
+            var allInput = $('.form-user-input');
+
+            $.each(allInput, function (i, val) {
+                dataForm[val['name']] = val['value'];
+            });
+
+            $.ajax(link, {
+                type: 'POST',
+                data: dataForm,
+                success: function (data, status, xhr) {
+                    var data_str = JSON.parse(data);
+
+                    alert(data_str['pesan']);
+                    console.log(data_str);
+                    if (data_str['sukses'] == 'Ya') {
+
+                        setSession(data_str['admin']);
+                    }
+                },
+                error: function (jqXHR, textStatus, errorMsg) {
+                    alert('Error : ' + errorMsg);
+                }
+            });
+        }
+
+        function setSession(user) 
+        {
+            var link = "http://localhost/FE_CicilanMotor/home/setSession";
+
+            var dataForm = {};
+            dataForm['id_admin'] = user['id_admin'];
+            dataForm['email'] = user['email'];
+            dataForm['nama'] = user['nama'];
+
+            $.ajax(link, {
+                type: 'POST',
+                data: dataForm,
+                success: function (data, status, xhr)
+                {
+                    location.replace('http://localhost/FE_CicilanMotor/admin/landing_page');
+                },
+                    error: function (jqXHR, textStatus, errorMsg) {
+                    alert('Error : ' + errorMsg);
+                }
+                });
+        }
+
+
+    </script>
 </body>
 
 </html>
