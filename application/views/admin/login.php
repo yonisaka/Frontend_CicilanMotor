@@ -109,7 +109,7 @@
                 data: dataForm,
                 success: function (data, status, xhr)
                 {
-                    location.replace('http://localhost/FE_CicilanMotor/admin/landing_page');
+                    location.replace('http://localhost/FE_CicilanMotor/admin');
                 },
                     error: function (jqXHR, textStatus, errorMsg) {
                     alert('Error : ' + errorMsg);

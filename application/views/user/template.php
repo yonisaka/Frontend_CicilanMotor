@@ -19,7 +19,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a href="<?=base_url('home')?>" class="js-scroll-trigger nav-link text-uppercase font-weight-bold">Home </a></li>
                     <li class="nav-item">
-                      <a id="btn-logout" class="btn btn-sm btn-rounded btn-brand nav-link text-uppercase font-weight-bold ml-2">Logout</a>
+                      <a id="btn-logout" class="nav-link text-uppercase font-weight-bold ml-2">Logout</a>
                     </li>
                 </ul>
             </div>

@@ -1,7 +1,7 @@
 <style type="text/css">
 .upload-area{
-    width: 70%;
-    height: 350px;
+    width: 100%;
+    height: 200px;
     border: 2px solid lightgray;
     border-radius: 3px;
     margin: 0 auto;
@@ -11,7 +11,7 @@
 .upload-area:hover{
     cursor: pointer;
 }
-.upload-area h2{
+.upload-area h4{
     text-align: center;
     font-weight: normal;
     font-family: sans-serif;
@@ -30,6 +30,7 @@
     border-radius: 3px;
     float: left;
 }
+
 .size{
     font-size:12px;
 }
@@ -38,54 +39,60 @@
     <h5 class="card-header">Form Edit Data Motor</h5>
         <div class="card-body">
             <form id="formMotor">
-                <div class="form-group">
-                    <label for="merek" class="col-form-label">Merek</label>
-                    <input id="merek" type="text" class="form-control form-control-line form-user-input" name="merek">
-                </div>
-                <div class="form-group">
-                    <label for="seri" class="col-form-label">Seri</label>
-                    <input id="seri" type="text" class="form-control form-control-line form-user-input" name="seri">
-                </div>
-                <div class="form-group">
-                    <label for="jenis" class="col-form-label">Jenis</label>
-                    <input id="jenis" type="text" class="form-control form-control-line form-user-input" name="jenis">
-                </div>
-                <div class="form-group">
-                    <label for="deskripsi" class="col-form-label">Deskripsi</label>
-                   <!--  <input id="deskripsi" type="text" class="form-control form-control-line form-user-input" name="deskripsi" > -->
-                   <textarea class="form-control form-control-line form-user-input" id="deskripsi" name="deskripsi" rows="3"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="stok" class="col-form-label">Stok</label>
-                    <input id="stok" type="text" class="form-control form-control-line form-user-input" name="stok">
-                </div>
-                <div class="form-group">
-                    <label for="harga" class="col-form-label">Harga</label>
-                    <input id="harga" type="text" class="form-control form-control-line form-user-input" name="harga">
-                </div>
-                <div class="form-group">
-                    <label for="tahun_pembuatan" class="col-form-label">Tahun Pembuatan</label>
-                    <input id="tahun_pembuatan" type="text" class="form-control form-control-line form-user-input" name="tahun_pembuatan">
-                </div>
-                <div class="form-group">
-                    <label class="col-md-12">Upload Foto</label>
-                        <div class="col-md-12">
-                        <input type="file" name="file" id="file">
-                        <!-- Drag and Drop Container -->
-                        <div class="upload-area" id="uploadfile">
-                        <h2>Drag and Drop file here <br/> or <br/> Click to select file</h2>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="merek" class="col-form-label">Merek</label>
+                            <input id="merek" type="text" class="form-control form-control-line form-user-input" name="merek">
+                        </div>
+                        <div class="form-group">
+                            <label for="seri" class="col-form-label">Seri</label>
+                            <input id="seri" type="text" class="form-control form-control-line form-user-input" name="seri">
+                        </div>
+                        <div class="form-group">
+                            <label for="jenis" class="col-form-label">Jenis</label>
+                            <input id="jenis" type="text" class="form-control form-control-line form-user-input" name="jenis">
+                        </div>
+                        <div class="form-group">
+                            <label for="stok" class="col-form-label">Stok</label>
+                            <input id="stok" type="text" class="form-control form-control-line form-user-input" name="stok">
+                        </div>
+                        <div class="form-group">
+                            <label for="harga" class="col-form-label">Harga</label>
+                            <input id="harga" type="text" class="form-control form-control-line form-user-input" name="harga">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="tahun_pembuatan" class="col-form-label">Tahun Pembuatan</label>
+                            <input id="tahun_pembuatan" type="text" class="form-control form-control-line form-user-input" name="tahun_pembuatan">
+                        </div>
+                        <div class="form-group">
+                            <label for="deskripsi" class="col-form-label">Deskripsi</label>
+                           <textarea class="form-control form-control-line form-user-input" id="deskripsi" name="deskripsi" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">Upload Foto</label>
+                                <div class="col-md-12">
+                                <input type="file" name="file" id="file">
+                                <!-- Drag and Drop Container -->
+                                <div class="upload-area" id="uploadfile">
+                                    <h4>Drag and Drop file here </h4>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
                     <div class="col-sm-12">
                         <input class="form-user-input" type="hidden" name="id_motor" id="id_motor" value="">
-                        <button class="btn btn-success" type="submit">Simpan Data</button>
+                        <button class="btn btn-primary" type="submit">Simpan Data</button>
                     </div>
                 </div> 
             </form>
         </div>
-       
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>       
 <script type="text/javascript">
 
     $('#formMotor').on('submit', function(e){
@@ -120,13 +127,19 @@
             processData: false,
             dataType: 'json',
             success: function (data, status, xhr) {
-                // console.log("submit sukses");
-                alert(data['pesan']);
-                loadMenu('<?= base_url('motor')?>');
+                Swal.fire({
+                    type: 'success',
+                    title: 'Data Motor berhasil ditambahkan',
+                    timer: 3000,
+                    showCancelButton: false,
+                    showConfirmButton: false
+                })
+                .then(function(){
+                    loadMenu('<?= base_url('motor')?>');
+                });
             },
             error: function (jqXHR, textStatus, errorMsg) {
                 alert('Error : ' + errorMsg);
-                // console.log(errorMsg);
             }
         });
     }
@@ -179,19 +192,19 @@
     $("html").on("dragover", function(e) {
         e.preventDefault();
         e.stopPropagation();
-        $(".upload-area > h2").text("Drag here");
+        $(".upload-area > h4").text("Drag here");
     });
 
     $('.upload-area').on('dragenter', function (e) {
         e.stopPropagation();
         e.preventDefault();
-        $(".upload-area > h2").text("Drop");
+        $(".upload-area > h4").text("Drop");
     });
 
     $('.upload-area').on('dragover', function (e) {
         e.stopPropagation();
         e.preventDefault();
-        $(".upload-area > h2").text("Drop !!");
+        $(".upload-area > h4").text("Drop !!");
     });
 
     $(".upload-area").on("drop", function (e) {
@@ -200,7 +213,7 @@
         var file = e.originalEvent.dataTransfer.files;
         $("#file")[0].files = file;
         // console.log(file);
-        $(".upload-area > h2").text("File yang dipilih : " + file[0].name);
+        $(".upload-area > h4").text("File yang dipilih : " + file[0].name);
     });
 
     $(".upload-area").click(function(){
@@ -210,7 +223,7 @@
     $("#file").change(function () {
         var file = $("#file")[0].files[0];
         // console.log(file);
-        $(".upload-area > h2").text("File yang dipilih : " + file.name);
+        $(".upload-area > h4").text("File yang dipilih : " + file.name);
     });
 
 

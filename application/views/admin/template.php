@@ -159,7 +159,7 @@
                                             <a class="nav-link" href="#" onclick="loadMenu('<?=base_url('transaksi')?>')">Transaksi Terbaru</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Angsuran Terbaru</a>
+                                            <a class="nav-link" href="#" onclick="loadMenu('<?=base_url('angsuran')?>')">Angsuran Terbaru</a>
                                         </li>
                                     </ul>
                                 </div>

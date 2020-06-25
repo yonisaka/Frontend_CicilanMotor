@@ -1,8 +1,7 @@
 <div class="card">
     <div class="card-body">
         <h4>Dibawah ini adalah Data Transaksi</h4>
-
-        <table id="tabel_transaksi" class="table">
+        <table id="tabel_transaksi" class="table col-12">
         <thead>
             <tr>
                 <th>ID Transaksi</th>
