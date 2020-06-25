@@ -18,8 +18,15 @@ class Admin extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('admin/template');
+		$this->load->library('session');
+		$id_admin = $this->session->userdata('id_admin');
+		if( $id_admin != null ){
+			$this->load->view('admin/template');
+		}else {
+			$this->load->view('admin/login');
+		}
 	}
+	
 	public function login()
 	{
 		$this->load->view('admin/login');

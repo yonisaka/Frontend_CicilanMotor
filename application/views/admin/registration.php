@@ -128,11 +128,11 @@
         success: function (data, status, xhr) {
           console.log("submit sukses");
           alert(data['pesan']);
-          // window.location.href('<?= base_url('')?>');
+          window.location.href('<?= base_url('admin/login')?>');
         },
         error: function (jqXHR, textStatus, errorMsg) {
           alert('Error : ' + errorMsg);
-          // console.log(errorMsg);
+          console.log(errorMsg);
         }
       });
     }

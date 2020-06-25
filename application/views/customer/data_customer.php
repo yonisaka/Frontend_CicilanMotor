@@ -28,21 +28,21 @@
             }
         })
     }
-        loadKonten('http://localhost/BE_CicilanMotor/customer/data_customer');
+    loadKonten('http://localhost/BE_CicilanMotor/customer/data_customer');
 
-        function reload_event(){
-                $('.linkEditCustomer').on('click', function (){
-                    var hashClean = this.hash.replace('#','');
-                    loadMenu('<?=base_url('customer/form_edit/')?>' + hashClean);
-                });
-                $('.linkHapusCustomer').on('click', function(){
-                    var hashClean = this.hash.replace('#','');
-                    hapusData(hashClean);
-                });
+    function reload_event(){
+        $('.linkEditCustomer').on('click', function (){
+            var hashClean = this.hash.replace('#','');
+            loadMenu('<?=base_url('customer/form_edit/')?>' + hashClean);
+        });
+        $('.linkHapusCustomer').on('click', function(){
+            var hashClean = this.hash.replace('#','');
+            hapusData(hashClean);
+        });
 
-                $('#tabel_data_customer').DataTable();
+        $('#tabel_data_customer').DataTable();
 
-            }
+    }
 
     function hapusData(id_customer){
         var url = 'http://localhost/BE_CicilanMotor/customer/soft_delete_data?id_customer='+id_customer;

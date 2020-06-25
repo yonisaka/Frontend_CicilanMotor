@@ -53,7 +53,7 @@
 	    </div>
 		<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 col-lg-6 col-md-6 col-sm-12 col-12">
 	        <div class="card">
-	        	<div id="foto-motor"></div>
+	        	<div id="foto-motor" class="mx-auto"></div>
 	            <!-- <img src="<?=base_url()?>/assets/images/beat.png" alt="" class="img-fluid"> -->
 	            <div class="card-body">
 	            	<div id="judul"></div>
@@ -80,7 +80,7 @@
 					var detail = data_obj['detail'];
 			
 					$('#judul').html("<h3>"+ detail['merek']+" "+ detail['seri'] +"</h3>");
-					$('#foto-motor').html("<img src='http://localhost/BE_CicilanMotor/foto/"+ detail['id_motor'] +"/"+ detail['foto']+"' class='img-fluid'>");
+					$('#foto-motor').html("<img src='http://localhost/BE_CicilanMotor/foto/"+ detail['id_motor'] +"/"+ detail['foto']+"'style='max-height:340px;' class='img-fluid mt-5'>");
 					$('#deskripsi').html(detail['deskripsi']);
 					$('#seri').html(detail['seri']);
 					$('#harga').html(detail['harga']);

@@ -101,7 +101,7 @@
                         <li class="nav-item"><a href="#produk" class="js-scroll-trigger nav-link text-uppercase font-weight-bold js-scroll-trigger">Produk</a></li>
                         <li class="nav-item"><a href="#about" class="js-scroll-trigger nav-link text-uppercase font-weight-bold">About</a></li>
                         <li class="nav-item">
-                            <a href="#checkout" class="btn btn-sm btn-rounded btn-brand nav-link text-uppercase font-weight-bold ml-2" data-toggle="modal" data-target="#loginModal">Sign in</a>
+                            <a href="#checkout" class="nav-link text-uppercase font-weight-bold ml-2" data-toggle="modal" data-target="#loginModal">Sign in</a>
                         </li>
                     </ul>
                 </div>
@@ -109,16 +109,16 @@
         </nav>
     </header>
     <section id="home">
-        <div class="jumbotron jumb1">
-            <div class="container row mx-auto">
-                <div class="col-6 mt-4">
-                    <h2 class="mt-5">Cara mudah cepat cicil motor </h2>
-                    <h1 class="text-primary">dengan <b>DP 0%</b></h1>
-                </div>
-                <div class="col-5">
-                    <img src="<?= base_url() ?>/assets/images/beat.png">
-                </div>
+        <div class="bg-light">
+          <div class="container py-5">
+            <div class="row h-100 align-items-center py-5">
+              <div class="col-lg-6">
+                <h1 class="display-4">Beli Motor DP 0%</h1>
+                <p class="lead text-muted mb-0">Cara tepat dan mudah cicil motor</p>
+              </div>
+              <div class="col-lg-6 d-none d-lg-block"><img src="<?=base_url('assets/images/undraw_motor.svg')?>" alt="" class="img-fluid"></div>
             </div>
+          </div>
         </div>
     </section>
 
