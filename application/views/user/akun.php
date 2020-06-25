@@ -1,4 +1,5 @@
-<div class="container dashboard-content ">
+<div id="kontenTemplate">
+    <div class="container dashboard-content ">
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="page-header">
@@ -60,14 +61,13 @@
                                     <th scope="col">Status</th>
                                 </tr>
                             </thead>
-                        
                         </table>
                     </div>                      
                 </div>
             </div>
         </div>
     </div>
-
+</div>
     <script type="text/javascript" src="<?=base_url('assets/datatable/datatables.min.js')?>"></script>
     <script type="text/javascript">
         function loadKonten(url){
@@ -90,9 +90,25 @@
                 error: function (jqXHR, textStatus, errorMsg) {
                     alert('Error : ' + errorMsg);
                 }
-            })
+            });
         }
         loadKonten("http://localhost/BE_CicilanMotor/customer/get_customer_by_id");
+
+        function loadMenu(url){
+            $.ajax(url,{
+                type: 'GET',
+                success: function (data, status, xhr) {
+                    var objData = JSON.parse(data);
+
+                    $('#kontenTemplate').html(objData.konten);
+                    $('title').html(objData.titel);
+                    $('.page-breadcrumb .page-title').html(objData.titel);
+                },
+                error: function (jqXHR, textStatus, errorMsg) {
+                    alert('Error : ' + errorMsg);
+                }
+            });
+        }
 
     </script>
     <script type="text/javascript">

@@ -60,16 +60,6 @@
                         });
                   }
                 })
-                // Swal.fire({
-                //     type: 'success',
-                //     title: 'Logout Berhasil!',
-                //     timer: 3000,
-                //     showCancelButton: false,
-                //     showConfirmButton: false
-                // })
-                // .then(function(){
-                //     window.location.href = "<?=base_url('')?>";
-                // });
             },
             error: function (jqXHR, textStatus, errorMsg) {
                 alert('Error : ' + errorMsg);

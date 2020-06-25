@@ -1,9 +1,9 @@
 
 <div class="card"> 
     <div class="card-body">
-        <h4>Dibawah Ini Adalah Data Motor</h4>
+        <h4>Dibawah Ini Adalah Data Customer</h4>
   
-        <table id="tabel_data_motor" class="table">
+        <table id="tabel_data_customer" class="table">
             
         </table>
 
@@ -19,7 +19,7 @@
             success: function (data, status, xhr) {
                 var objData = JSON.parse(data);
 
-                $('#tabel_data_motor').html(objData.konten);
+                $('#tabel_data_customer').html(objData.konten);
 
                 reload_event();
             },
@@ -28,34 +28,36 @@
             }
         })
     }
-    loadKonten('http://localhost/BE_CicilanMotor/motor/data_motor');
+    loadKonten('http://localhost/BE_CicilanMotor/customer/data_customer');
 
     function reload_event(){
-        $('.linkEditMotor').on('click', function (){
+        $('.linkEditCustomer').on('click', function (){
             var hashClean = this.hash.replace('#','');
-            loadMenu('<?=base_url('motor/form_edit/')?>' + hashClean);
+            loadMenu('<?=base_url('customer/form_edit/')?>' + hashClean);
         });
-        $('.linkHapusMotor').on('click', function(){
+        $('.linkHapusCustomer').on('click', function(){
             var hashClean = this.hash.replace('#','');
             hapusData(hashClean);
         });
 
-        $('#tabel_data_motor').DataTable();
+        $('#tabel_data_customer').DataTable();
 
     }
-    function hapusData(id_motor){
-        var url = 'http://localhost/BE_CicilanMotor/motor/soft_delete_data?id_motor='+id_motor;
+
+    function hapusData(id_customer){
+        var url = 'http://localhost/BE_CicilanMotor/customer/soft_delete_data?id_customer='+id_customer;
 
         $.ajax(url, {
             type: 'GET',
             success: function(data, status, xhr){
                 var objData = JSON.parse(data);
                 alert(objData['pesan']);
-                loadKonten('http://localhost/BE_CicilanMotor/motor/data_motor');
+                loadKonten('http://localhost/BE_CicilanMotor/customer/data_customer');
             },
             error: function(jqXHR, textStatus, errorMsg){
                 alert('Error : ' + errorMsg);
             }
         })
     }
+
 </script>

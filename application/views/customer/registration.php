@@ -104,7 +104,7 @@
                   <div class="form-group row">
                       <label class="col-12 col-sm-3 col-form-label text-sm-right">No KTP</label>
                       <div class="col-12 col-sm-8 col-lg-6">
-                          <input type="text" required="" data-parsley-max="16"  name="ktp" id="ktp" placeholder="Masukkan no ktp" class="form-control form-user-input">
+                          <input type="text" required="" data-parsley-max="16"  name="no_ktp" id="no_ktp" placeholder="Masukkan no ktp" class="form-control form-user-input">
                       </div>
                   </div>
                   <div class="form-group row">
@@ -116,7 +116,7 @@
                   <div class="form-group row">
                       <label class="col-12 col-sm-3 col-form-label text-sm-right">No Telepon</label>
                       <div class="col-12 col-sm-8 col-lg-6">
-                          <input data-parsley-type="number" type="text" required="" name="telp" id="telp" placeholder="Masukkan no tlp" class="form-control form-user-input">
+                          <input data-parsley-type="number" type="text" required="" name="no_telepon" id="no_telepon" placeholder="Masukkan no tlp" class="form-control form-user-input">
                       </div>
                   </div>
                   <div class="form-group row">
@@ -133,6 +133,7 @@
                         </div>
                   </div>
               </div>
+          </div>
       </form>
     </div>
 
